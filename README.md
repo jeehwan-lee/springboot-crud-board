@@ -30,18 +30,28 @@
 
 1. 세팅 및 환경설정
 
-- 2023.01.04
+- 23.01.04
   - 외부 라이브러리 추가
   - Main controller 작성 및 브라우저 접속 성공
 
 2. JPA를 통한 기본 엔티티 작성
 
-- 2023.01.05
+- 23.01.05
   - question, answer 엔티티 작성 및 테이블 생성
+
+3. Repository와 Service, Controller 작성
+
+- 23.01.06
+  - QuestionRepository, AnswerRepository 작성
+  - Question 데이터 조회 성공
 
 ## Todo_list
 
 3. Repository와 Service, Controller 작성
+
+- Controller 작성을 통한 질문 list 랜더링
+- front 부분 thymeleaf 를 통해 작성
+
 4. 질문 상세 페이지 작성
 5. 답변 등록 페이지 작성
 6. 부트 스트랩을 통한 페이지 랜더링
