@@ -10,16 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.crud.model.Question;
 import com.crud.repository.QuestionRepository;
+import com.crud.service.QuestionService;
 
 @Controller
 public class QuestionController {
 	
 	@Autowired
-	private QuestionRepository questionRepository;
+	private QuestionService questionService;
 
 	@GetMapping("/question/list")
 	public String list(Model model) {
-		List<Question> questionList = questionRepository.findAll();
+		List<Question> questionList = questionService.getList();
 		model.addAttribute("questionList", questionList);
 		return "question_list";
 	}
