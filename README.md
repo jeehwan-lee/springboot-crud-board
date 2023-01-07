@@ -42,15 +42,19 @@
 3. Repository와 Service, Controller 작성
 
 - 23.01.06
+
   - QuestionRepository, AnswerRepository 작성
   - Question 데이터 조회 성공
+
+- 23.01.08
+  - thymeleaf 를 통한 question_list 페이지 작성 및 질문 데이터 출력
+  - main controller 를 통해 '/' 페이지 접속 시 redirect 완료
 
 ## Todo_list
 
 3. Repository와 Service, Controller 작성
 
-- Controller 작성을 통한 질문 list 랜더링
-- front 부분 thymeleaf 를 통해 작성
+- Service 작성 필요
 
 4. 질문 상세 페이지 작성
 5. 답변 등록 페이지 작성
