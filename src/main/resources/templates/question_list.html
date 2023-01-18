@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<title>Insert title here</title>
-</head>
-<body>
-	<div class="container my-3">
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content" class="container my-3">
 		<table class="table">
 			<thead class="table-dark">
 				<tr>
@@ -26,5 +19,4 @@
 			</tbody>
 		</table>
 	</div>
-</body>
 </html>
