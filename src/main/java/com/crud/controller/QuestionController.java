@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.crud.model.AnswerForm;
 import com.crud.model.Question;
 import com.crud.model.QuestionForm;
 import com.crud.repository.QuestionRepository;
@@ -33,7 +34,7 @@ public class QuestionController {
 	}
 	
 	@GetMapping("/question/detail/{id}")
-	public String detail(Model model, @PathVariable("id") Integer id) {
+	public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
 		Question question = questionService.getQuestion(id);
 		model.addAttribute("question", question);
 		
