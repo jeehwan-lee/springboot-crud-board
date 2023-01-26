@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.crud.model.Question;
+import com.crud.model.User;
 import com.crud.repository.QuestionRepository;
 
 @Service
@@ -32,10 +33,11 @@ public class QuestionService {
 		return question.get();
 	}
 	
-	public void create(String subject, String content) {
+	public void create(String subject, String content, User author) {
 		Question q = new Question();
 		q.setSubject(subject);
 		q.setContent(content);
+		q.setAuthor(author);
 		q.setCreateDate(LocalDateTime.now());
 		questionRepository.save(q);
 	}

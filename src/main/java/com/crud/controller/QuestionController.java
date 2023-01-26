@@ -1,9 +1,11 @@
 package com.crud.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.crud.model.AnswerForm;
 import com.crud.model.Question;
 import com.crud.model.QuestionForm;
+import com.crud.model.User;
 import com.crud.repository.QuestionRepository;
 import com.crud.service.QuestionService;
+import com.crud.service.UserService;
 
 import jakarta.validation.Valid;
 
@@ -26,6 +30,9 @@ public class QuestionController {
 	
 	@Autowired
 	private QuestionService questionService;
+	
+	@Autowired
+	private UserService userService;
 
 	/*
 	@GetMapping("/question/list")
@@ -51,6 +58,7 @@ public class QuestionController {
 		return "question_detail";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/question/create")
 	public String questionCreate(QuestionForm questionForm) {
 		return "question_form";
@@ -63,12 +71,14 @@ public class QuestionController {
 		return "redirect:/question/list";
 	} */
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("question/create")
-	public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
+	public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult, Principal principal) {
 		if(bindingResult.hasErrors()) {
 			return "question_form";
 		}
-		questionService.create(questionForm.getSubject(), questionForm.getContent());
+		User user = userService.getUser(principal.getName());
+		questionService.create(questionForm.getSubject(), questionForm.getContent(), user);
 		return "redirect:/question/list";
 	}
 }
