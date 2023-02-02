@@ -62,7 +62,31 @@
   - localhost:8080/user/signup
 
 - 로그인 페이지로 이동 (post)
+
   - localhost:8080/user/login
+
+- 질문 수정 페이지로 이동 (get)
+
+  - localhost:8080/question/modify/{id}
+
+- 질문 수정 기능 (post)
+
+  - localhost:8080/question/modify/{id}
+
+- 질문 삭제 기능 (get)
+
+  - localhost:8080/question/delete/{id}
+
+- 답변 수정 페이지로 이동 (get)
+
+  - localhost:8080/answer/modify/{id}
+
+- 답변 수정 기능 (post)
+
+  - localhost:8080/answer/modify/{id}
+
+- 답변 삭제 기능 (get)
+  - localhost:8080/answer/delete/{id}
 
 ## 업데이트 내역
 
@@ -157,6 +181,7 @@
 
 - 23.02.02
   - question 수정 및 삭제 기능 구현
+  - answer 수정 및 삭제 기능 구현
 
 ## Todo_list
 
@@ -167,6 +192,10 @@
 
 10. 답변 개수 표시 기능
 11. 게시글 수정 및 삭제 기능 구현
+
+- 답변이 없을 경우 예외처리 기능 필요
+- answerService 의 getAnswer 메서드에서 Optional 객체를 통해 받은 Answer 이 없을 경우
+
 12. 게시글 검색 기능 구현
 
 ## 프로젝트를 통해 배운것
