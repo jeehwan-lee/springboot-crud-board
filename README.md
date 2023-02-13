@@ -1,201 +1,205 @@
 # springboot-crud-board
+> 웹 페이지의 기본적인 기능인 CRUD와 로그인, 회원가입 기능을 갖춘 게시판 프로젝트입니다.
+
+## 목차
+
+- [들어가며](#들어가며)
+
+  - [프로젝트 소개](#1-프로젝트-소개)
+  
+  - [프로젝트 기능](#2-프로젝트-기능)
+  
+  - [사용기술](#3-사용기술)
+  
+    - 백엔드
+    
+    - 프론트엔드
+    
+  - [실행화면](#4-실행화면)
+  
+- [구조 및 설계](#구조-및-설계)
+
+  - [DB 설계](#1-db-설계)
+  
+  - [API 설계](#2-api-설계)
+  
+- [추후 업데이트](#추후-업데이트)
+
+- [후기](#후기)
+
+
+## 들어가며
+### 1. 프로젝트 소개
+
+이 프로젝트는 CRUD와 로그인, 회원가입 기능을 갖춘 기본적인 게시판을 구현한 프로젝트로 
+
+SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 
-이 프로젝트는 CRUD와 로그인, 회원가입 기능을 갖춘 기본적인 게시판을 구현한 프로젝트로
+프로젝트의 전체 진행과정은 [게시판 만들기](https://jeehwan94.tistory.com/20)를 통해 확인할 수 있습니다.
 
-스프링부트를 공부하고 실습해보기 위해 시작하였습니다.
+### 2. 프로젝트 기능
 
-프로젝트의 진행과정은 [게시판 만들기](https://jeehwan94.tistory.com/20)를 통해 확인할 수 있습니다.
+프로젝트의 기능은 다음과 같습니다.
 
-## 개발환경
+- 게시판 : CRUD 기능, 게시글 상세 정보(제목, 내용, 날짜, 글쓴이, 댓글) 표시, 페이징 처리
 
-- Eclipse
-- STS4
-- maven (빌드도구)
-- JAVA 8
+- 사용자 : 회원가입 및 로그인, 회원가입 시 유효성 및 중복 검사
 
-## 외부 라이브러리
+- 댓글 : crud 기능, 댓글 상세 정보(날짜, 글쓴이) 표시
 
-- Spring Boot DevTools
-- Lombok
-- Spring Data JPA
-- MySQL Driver
-- Spring Security
-- Thymeleaf
-- Spring Web
-- BootStrap
+### 3. 사용기술
 
-## 배포도구
+- 프론트엔드
+ 
+  - HTML
+  
+  - Thymeleaf
+  
+  - Javascript
+  
+  - Bootstrap
+  
+- 백엔드
 
-- AWS EC2
+  - 프레임워크 및 라이브러리
+  
+    - JAVA 17
+    
+    - SpringBoot
+    
+    - Spring Data JPA
+    
+    - Spring Security
+    
+    - Spring Boot DevTools
+    
+    - Lombok
+    
+    - Spring Web
+    
+  - 빌드도구
+  
+    - Maven
+    
+  - 데이터베이스
+  
+    - MySQL
+  
+    
+### 4. 실행화면
 
-## ERD
 
-## API 정리
+## 구조 및 설계
 
-- 질문 리스트 보기 (get)
+### 1. DB 설계
 
-  - localhost:8080/question/list
-  - localhost:8080/
+### 2. API 설계
 
-- 각 질문에 대한 상세 페이지 (get)
+- 게시글 관련 API
 
-  - localhost:8080/question/detail/{id}
+|기능|Method|URL|return page|
+|---|---|---|---|
+|게시글 전체 조회|GET|/|게시글 전체 페이지|
+|게시글 전체 조회|GET|/question/list|게시글 전체 페이지|
+|게시글 상세|GET|/question/detail/{id}|게시글 상세 페이지|
+|게시글 등록 페이지 이동|GET|/question/create|게시글 등록 페이지|
+|게시글 등록|POST|/question/create|게시글 전체 페이지|
+|게시글 수정 페이지 이동|GET|/question/modify/{id}|게시글 수정 페이지|
+|게시글 수정|POST|/question/modify/{id}|게시글 상세 페이지|
+|게시글 삭제|GET|/question/delete/{id}|게시글 전체 페이지|
 
-- 답변 등록 기능 (post)
 
-  - localhost:8080/answer/create/{id}
+- 회원 관련 API
 
-- 질문 등록 페이지로 이동 (get)
+|기능|Method|URL|return page|
+|---|---|---|---|
+|회원가입 페이지 이동|GET|/user/signup|회원가입 페이지|
+|회원가입|POST|/user/signup|메인 페이지|
+|로그인 페이지 이동|GET|/user/login|로그인 페이지|
+|로그인|POST|/user/login|메인 페이지|
+|로그아웃|POST|/user/logout|메인 페이지|
 
-  - localhost:8080/question/create
 
-- 질문 등록 기능 (post)
 
-  - localhost:8080/question/create
+- 댓글 관련 API
 
-- 회원가입 페이지로 이동 (get)
+|기능|Method|URL|return page|
+|---|---|---|---|
+|답변 등록|POST|/answer/create/{id}|게시글 상세 페이지|
+|답변 수정 페이지 이동|GET|/answer/modify/{id}|답변 수정 페이지|
+|답변 수정|POST|/answer/modify/{id}|게시글 상세 페이지|
+|답변 삭제|GET|/answer/delete/{id}|게시글 상세 페이지|
 
-  - localhost:8080/user/signup
 
-- 회원가입 기능 (post)
+## 추후 업데이트
 
-  - localhost:8080/user/signup
+### 1. Service 수정 필요
 
-- 로그인 페이지로 이동 (post)
+UserService, QuestionService 및 AnswerService 의 getUser와 getQuestion, getAnswer 메서드를 통해 
 
-  - localhost:8080/user/login
+user와 question, answer 을 가져올때 Optional 을 통해서 값을 찾지 못했을 경우 예외처리 필요
 
-- 질문 수정 페이지로 이동 (get)
+예시)
 
-  - localhost:8080/question/modify/{id}
+```
+package com.crud.service;
+...
+@Service
+public class UserService {
 
-- 질문 수정 기능 (post)
+	...
+  
+	public User getUser(String username) {
+		Optional<User> user = userRepository.findByusername(username);
+		// user를 못찾을 경우 예외처리 필요
+		return user.get();
+	}
+}
 
-  - localhost:8080/question/modify/{id}
+```
 
-- 질문 삭제 기능 (get)
+### 2. 메인 페이지의 게시글 제목 옆 답변 개수 표시 기능
 
-  - localhost:8080/question/delete/{id}
 
-- 답변 수정 페이지로 이동 (get)
+### 3. 게시글 검색 기능 구현
 
-  - localhost:8080/answer/modify/{id}
+메인 페이지에서 게시글 리스트를 보여주는것 외에 게시글을 검색할 수 있는 기능 필요
 
-- 답변 수정 기능 (post)
 
-  - localhost:8080/answer/modify/{id}
+### 4. 회원정보 수정 및 탈퇴 기능 필요
 
-- 답변 삭제 기능 (get)
-  - localhost:8080/answer/delete/{id}
+로그인이 되어있을 경우 각 회원들이 접속할 수 있는 회원정보를 수정 및 탈퇴 페이지를 만들고
 
-## 업데이트 내역
+해당 페이지에서 회원정보 수정 및 탈퇴 기능 구현이 필요
 
-1. 세팅 및 환경설정
 
-- 23.01.04
-  - 외부 라이브러리 추가
-  - Main controller 작성 및 브라우저 접속 성공
+## 후기
 
-2. JPA를 통한 기본 엔티티 작성
+프로젝트 소개에서도 이야기한것처럼 이 프로젝트는 SpringBoot를 공부하면서 웹 페이지와 서버의 기본적인 기능인
 
-- 23.01.05
-  - question, answer 엔티티 작성 및 테이블 생성
+CRUD와 로그인, 회원가입 기능을 구현해보기 위해 시작한 프로젝트입니다.
 
-3. Repository와 Service, Controller 작성
+이전에 React.js와 node.js 그리고 MongoDB를 사용한 MERN STACT으로 개발해서 간단한 블로그를 만든적이 있는데
 
-- 23.01.06
+이번에는 Spring으로 프로젝트의 전반적인 구성과 사용법을 알아보고 Spring에서 제공하는 다양한 라이브러리를 사용해보는것이 목표였습니다.
 
-  - QuestionRepository, AnswerRepository 작성
-  - Question 데이터 조회 성공
+Spring Data JPA와 Spring Security는 MERN STACK과는 다르게 라이브러리에서 제공하는 기능이 다양하기 때문에
 
-- 23.01.08
-  - thymeleaf 를 통한 question_list 페이지 작성 및 질문 데이터 출력
-  - main controller 를 통해 '/' 페이지 접속 시 redirect 완료
-  - service 작성
+여러 서적과 인터넷 검색을 통해 기능들을 찾아보았으며, 이번 프로젝트가 끝난후에 따로 공부를 해야할 필요성을 느꼈습니다.
 
-4. 질문 상세 페이지 작성
+특히 Spring Data JPA는 각각의 객체를 테이블로 매핑시킨다는점이 인상적이었으며, 
 
-- 23.01.08
+Spring Security의 경우 Thymeleaf와 같이 공부를 하면 좋겠다는 생각을 했습니다.
 
-  - 질문 상세(제목, 내용, 날짜) 출력 페이지 작성
+앞으로의 공부방향은 
 
-- 23.01.18
+1. JPA와 Spring Data JPA
 
-  - 템플릿 상속을 통한 질문 상세 페이지 수정
+2. Thymeleaf 기본 기능
 
-- 23.01.09
+3. Spring Security 
 
-  - 질문 상세 페이지에 답변 출력 및 답변 등록기능 추가
-  - 질문 상세 페이지에 bootstrap 적용
+위와 같은 순서로 공부를 하고 다시 한번 SpringBoot를 활용한 게시판 프로젝트를 만들어보려고 합니다.
 
-- 23.01.26
-  - 질문 상세 페이지에 글쓴이와 답변에 글쓴이 표시
+감사합니다.
 
-5. 답변 등록 페이지 작성
-
-- 23.01.09
-
-  - 답변 등록 페이지에 bootstrap 적용
-
-- 23.01.18
-
-  - 템플릿 상속을 통한 답변 등록 페이지 수정
-
-6. 질문 등록 기능 개발
-
-- 23.01.18
-
-  - 질문 등록 기능 개발 완료
-  - 작성 양식이 비워져있을 경우 에러메세지 출력 기능 추가
-
-7. 답변 등록 기능 개발
-
-- 23.01.18
-  - 답변 등록 기능 개발 완료
-  - 작성 양식이 비워져있을 경우 에러메세지 출력 기능 추가
-
-8. 네비게이션바 개발
-
-- 23.01.22
-
-9. 페이징 기능 개발
-
-- 23.01.22
-  - url 을 통해 page 값 입력시 페이지 출력
-  - 페이지 이동할 수 있는 버튼 개발 완료
-  - id 값을 기준으로 내림차순으로 정렬
-
-11. 회원가입 기능 구현
-
-- 23.01.24
-  - 스프링 시큐리티 설정 완료
-  - 비밀번호 암호화를 통한 회원가입 기능 완료
-
-12. 로그인 및 로그아웃 기능 구현
-
-- 23.01.25
-
-  - 스프링 시큐리티를 통한 로그인 및 로그아웃 완료
-
-13. 글 수정 및 삭제
-
-- 23.02.02
-  - question 수정 및 삭제 기능 구현
-  - answer 수정 및 삭제 기능 구현
-
-## Todo_list
-
-4. 질문 상세 페이지 작성
-
-- 질문이 없을 경우 예외처리 기능 필요
-- userService 의 getUser 메서드에서 User 못찾을 경우 예외처리 필요
-
-10. 답변 개수 표시 기능
-11. 게시글 수정 및 삭제 기능 구현
-
-- 답변이 없을 경우 예외처리 기능 필요
-- answerService 의 getAnswer 메서드에서 Optional 객체를 통해 받은 Answer 이 없을 경우
-
-12. 게시글 검색 기능 구현
-
-## 프로젝트를 통해 배운것
