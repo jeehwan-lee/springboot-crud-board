@@ -92,10 +92,61 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
     
 ### 4. 실행화면
 
+<details>
+<summary>메인 페이지</summary>
+
+![image](https://user-images.githubusercontent.com/26796099/218554709-6de130a0-57da-44bf-afb2-7a5d7dbc0dad.png)
+
+</details>
+
+<details>
+<summary>게시글 등록 페이지</summary>
+
+![image](https://user-images.githubusercontent.com/26796099/218556143-dd77a280-36f4-452d-a388-8d8a2fbaf7da.png)
+
+</details>
+
+<details>
+<summary>게시글 상세 페이지</summary>
+
+![image](https://user-images.githubusercontent.com/26796099/218556368-8f320485-5c26-4822-a900-99da21493ba3.png)
+
+</details>
 
 ## 구조 및 설계
 
 ### 1. DB 설계
+
+- user 테이블
+
+|칼럼명|타 입|Null|Key|설 명|
+|:---:|:---:|:---:|:---:|:---:|
+|id|int|No|Primary Key|id|
+|email|varchar|Yes|Unique Key|이메일|
+|password|varchar|Yes|-|비밀번호|
+|username|varchar|Yes|Unique Key|아이디|
+
+- question 테이블
+
+|칼럼명|타 입|Null|Key|설 명|
+|:---:|:---:|:---:|:---:|:---:|
+|id|int|No|Primary Key|id|
+|content|text|Yes|-|user|내용|
+|create_date|datetime|Yes|-|생성일자|
+|subject|varchar|Yes|-|제목|
+|author_id|int|Yes|Multiple|작성자|
+|modify_date|datetime|Yes|-|수정일자|
+
+- answer 테이블
+
+|칼럼명|타 입|Null|Key|설 명|
+|:---:|:---:|:---:|:---:|:---:|
+|id|int|No|Primary Key|id|
+|content|text|Yes|-|user|내용|
+|create_date|datetime|Yes|-|생성일자|
+|question_id|int|Yes|Multiple|게시글|
+|author_id|int|Yes|Multiple|작성자|
+|modify_date|datetime|Yes|-|수정일자|
 
 ### 2. API 설계
 
@@ -103,14 +154,14 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 
 |기 능|Method|URL|return page|
 |---|---|---|---|
-|게시글 전체 조회|GET|/|게시글 전체 페이지|
-|게시글 전체 조회|GET|/question/list|게시글 전체 페이지|
+|게시글 전체 조회|GET|/|메인 페이지|
+|게시글 전체 조회|GET|/question/list|메인 페이지|
 |게시글 상세|GET|/question/detail/{id}|게시글 상세 페이지|
 |게시글 등록 페이지 이동|GET|/question/create|게시글 등록 페이지|
-|게시글 등록|POST|/question/create|게시글 전체 페이지|
+|게시글 등록|POST|/question/create|메인 페이지|
 |게시글 수정 페이지 이동|GET|/question/modify/{id}|게시글 수정 페이지|
 |게시글 수정|POST|/question/modify/{id}|게시글 상세 페이지|
-|게시글 삭제|GET|/question/delete/{id}|게시글 전체 페이지|
+|게시글 삭제|GET|/question/delete/{id}|메인 페이지|
 
 
 - 회원 관련 API
@@ -143,7 +194,8 @@ UserService, QuestionService 및 AnswerService 의 getUser와 getQuestion, getAn
 
 user와 question, answer 을 가져올때 Optional 을 통해서 값을 찾지 못했을 경우 예외처리 필요
 
-예시)
+<details>
+<summary>코드예시</summary>
 
 ```
 package com.crud.service;
@@ -160,6 +212,8 @@ public class UserService {
 	}
 }
 ```
+
+</details>
 
 ### 2. 메인 페이지의 게시글 제목 옆 답변 개수 표시 기능
 
