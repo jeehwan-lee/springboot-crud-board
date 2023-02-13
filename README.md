@@ -1,6 +1,10 @@
 # springboot-crud-board
 > 웹 페이지의 기본적인 기능인 CRUD와 로그인, 회원가입 기능을 갖춘 게시판 프로젝트입니다.
 
+![image](https://user-images.githubusercontent.com/26796099/218554709-6de130a0-57da-44bf-afb2-7a5d7dbc0dad.png)
+
+
+
 ## 목차
 
 - [들어가며](#들어가며)
@@ -97,7 +101,7 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 
 - 게시글 관련 API
 
-|기능|Method|URL|return page|
+|기 능|Method|URL|return page|
 |---|---|---|---|
 |게시글 전체 조회|GET|/|게시글 전체 페이지|
 |게시글 전체 조회|GET|/question/list|게시글 전체 페이지|
@@ -111,7 +115,7 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 
 - 회원 관련 API
 
-|기능|Method|URL|return page|
+|기 능|Method|URL|return page|
 |---|---|---|---|
 |회원가입 페이지 이동|GET|/user/signup|회원가입 페이지|
 |회원가입|POST|/user/signup|메인 페이지|
@@ -123,7 +127,7 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 
 - 댓글 관련 API
 
-|기능|Method|URL|return page|
+|기 능|Method|URL|return page|
 |---|---|---|---|
 |답변 등록|POST|/answer/create/{id}|게시글 상세 페이지|
 |답변 수정 페이지 이동|GET|/answer/modify/{id}|답변 수정 페이지|
@@ -155,10 +159,13 @@ public class UserService {
 		return user.get();
 	}
 }
-
 ```
 
 ### 2. 메인 페이지의 게시글 제목 옆 답변 개수 표시 기능
+
+대부분 게시판의 게시글 제목의 옆에는 해당 게시물에 달린 답변의 개수가 표시되어 있으며
+
+위 프로젝트에서도 답변의 개수를 표시하는 기능이 필요
 
 
 ### 3. 게시글 검색 기능 구현
