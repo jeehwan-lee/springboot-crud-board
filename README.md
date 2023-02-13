@@ -3,8 +3,6 @@
 
 ![image](https://user-images.githubusercontent.com/26796099/218563257-1d6ff896-91f9-4115-94e4-16117a0ae82a.png)
 
-
-
 ## 목차
 
 - [들어가며](#들어가며)
@@ -91,7 +89,7 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 <details>
 <summary>메인 페이지</summary>
 
-![image](https://user-images.githubusercontent.com/26796099/218554709-6de130a0-57da-44bf-afb2-7a5d7dbc0dad.png)
+![image](https://user-images.githubusercontent.com/26796099/218563257-1d6ff896-91f9-4115-94e4-16117a0ae82a.png)
 
 </details>
 
