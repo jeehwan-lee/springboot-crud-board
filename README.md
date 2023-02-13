@@ -1,7 +1,7 @@
 # springboot-crud-board
 > 웹 페이지의 기본적인 기능인 CRUD와 로그인, 회원가입 기능을 갖춘 게시판 프로젝트입니다.
 
-![image](https://user-images.githubusercontent.com/26796099/218554709-6de130a0-57da-44bf-afb2-7a5d7dbc0dad.png)
+![image](https://user-images.githubusercontent.com/26796099/218563257-1d6ff896-91f9-4115-94e4-16117a0ae82a.png)
 
 
 
