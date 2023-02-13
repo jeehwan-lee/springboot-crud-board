@@ -111,6 +111,9 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 
 ### 1. DB 설계
 
+![db](https://user-images.githubusercontent.com/26796099/218568500-6b80d94e-1056-46a8-8007-a2528fb7f1df.png)
+
+
 - user 테이블
 
 |칼럼명|타 입|Null|Key|설 명|
