@@ -101,7 +101,7 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 </details>
 
 <details>
-<summary> 페이지</summary>
+<summary>회원가입 페이지</summary>
 
 ![image](https://user-images.githubusercontent.com/26796099/219971836-0fa58e71-8065-40e2-ac5b-7b3882345ee4.png)
 
