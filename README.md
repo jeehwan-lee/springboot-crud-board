@@ -94,6 +94,20 @@ SpringBoot를 공부하고 실습해보기 위해 시작하였습니다.
 </details>
 
 <details>
+<summary>로그인 페이지</summary>
+
+![image](https://user-images.githubusercontent.com/26796099/219971792-c9815cf5-5a97-41d4-81be-3179bbd32f3d.png)
+
+</details>
+
+<details>
+<summary> 페이지</summary>
+
+![image](https://user-images.githubusercontent.com/26796099/219971836-0fa58e71-8065-40e2-ac5b-7b3882345ee4.png)
+
+</details>
+
+<details>
 <summary>게시글 등록 페이지</summary>
 
 ![image](https://user-images.githubusercontent.com/26796099/218556143-dd77a280-36f4-452d-a388-8d8a2fbaf7da.png)
